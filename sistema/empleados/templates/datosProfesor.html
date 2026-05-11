@@ -5,13 +5,19 @@
 </head>
 <body>
     <h1>Listado de Profesores</h1>
-    <hr>
+
+    <a href="{% url 'crear_profesor' %}">Agregar Nuevo Profesor</a>
+
     <ul>
         {% for prof in profesores %}
             <li>
                 <strong>Nombre:</strong> {{ prof.nombre }} {{ prof.apellidos }} <br>
                 <strong>Edad:</strong> {{ prof.edad }} años <br>
-                <strong>Dirección:</strong> {{ prof.domicilio.calle }} #{{ prof.domicilio.numero }}, {{ prof.domicilio.colonia }}, {{ prof.domicilio.ciudad }}
+                <strong>Dirección:</strong> {{ prof.domicilio.calle }} #{{ prof.domicilio.numero }}, {{ prof.domicilio.colonia }}, {{ prof.domicilio.ciudad }} <br>
+
+                <br>
+                <a href="{% url 'editar_profesor' prof.id %}">Editar</a> |
+                <a href="{% url 'eliminar_profesor' prof.id %}">Eliminar</a>
             </li>
             <br>
         {% endfor %}
