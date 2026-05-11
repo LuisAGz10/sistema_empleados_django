@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Datos de Profesores</title>
+</head>
+<body>
+    <h1>Listado de Profesores</h1>
+    <hr>
+    <ul>
+        {% for prof in profesores %}
+            <li>
+                <strong>Nombre:</strong> {{ prof.nombre }} {{ prof.apellidos }} <br>
+                <strong>Edad:</strong> {{ prof.edad }} años <br>
+                <strong>Dirección:</strong> {{ prof.domicilio.calle }} #{{ prof.domicilio.numero }}, {{ prof.domicilio.colonia }}, {{ prof.domicilio.ciudad }}
+            </li>
+            <br>
+        {% endfor %}
+    </ul>
+</body>
+</html>
